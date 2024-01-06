@@ -3,27 +3,24 @@
 
 <head>
     <title>RUN RUN RUN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="content-type">
     <style>
         body {
-            background-color: rgb(235, 235, 112);
+            background-color: rgb(247, 241, 226);
             text-align: center;
-            background-image: url('Untitled.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
         }
 
-        #riddler {
-            margin-top: 3%
-
-        }
         div {
             background-color: beige;
-            width: 4%;
+            width: 70%;
             margin: auto;
         }
         .button {
-     background-color:rgba(197, 185, 185, 0.432);
+     background-color:rgba(221, 214, 214, 0.432);
      border: none;
     color: black;
     padding: 2%;
@@ -34,17 +31,45 @@
     margin: 4px 2px;
     cursor: pointer;
         }
-        
+        .mySlides {display:none;}
     </style>
 </head>
 
 <body>
-    <img src="url.gif" alt="Meeee:3" id="riddler">
     <h1>Oh.. hello there...</h1>
     <div>
         <p>haaiiiiiii:P</p>
     </div>
-    <a href="landing.html" class="button">Saloon</a>
+    <a href="landing.html" class="button">Portfolio</a>
     
+
+   <div class="w3-content w3-display-container">
+    <img class="mySlides" src="Untitled.png" style="width:100%">
+    <img class="mySlides" src="Birds.png" style="width:100%">
+    <img class="mySlides" src="Flowers.png" style="width:100%">
+  
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+  
+  <script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+  
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+  
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";  
+  }
+  </script>
 </body>
 </html>
