@@ -1,75 +1,137 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>RUN RUN RUN</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="text/html; charset=iso-8859-2" http-equiv="content-type">
-    <style>
-        body {
+<title>RUN RUN RUN</title>
+
+     <style>
+         body {
             background-color: rgb(247, 241, 226);
             text-align: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-        }
+         }
 
-        div {
-            background-color: beige;
-            width: 70%;
-            margin: auto;
-        }
-        .button {
-     background-color:rgba(221, 214, 214, 0.432);
-     border: none;
-    color: black;
-    padding: 2%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 99%;
-    margin: 4px 2px;
-    cursor: pointer;
-        }
-        .mySlides {display:none;}
-    </style>
+     *{box-sizing: border-box;}
+     body{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+     .mySlides {display: none;}
+     img {vertical-align: middle;}
+
+    .slideshow-container {
+    position: left;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6 ease;
+    }
+
+.active {
+    background-color: rgba(236, 215, 187, 0.973) 
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.container .box { 
+                margin: 1%; 
+                display:table; 
+            } 
+            .container .box .box-row { 
+                display:table-row; 
+                width : 2%;
+            } 
+            .container .box .box-cell.box1 { 
+
+                text-align:justify; 
+             } 
+            .container .box .box-cell { 
+                display:table-cell; 
+            }
+            .container .box .box-cell.box2 { 
+                text-align:justify;
+                padding-left: 1px;
+            } 
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+</style>
 </head>
 
 <body>
-    <h1>Oh.. hello there...</h1>
-    <div>
-        <p>haaiiiiiii:P</p>
-    </div>
-    <a href="landing.html" class="button">Portfolio</a>
-    
+    <div class="container">
+        <div class="box">
+            <div class="box-row">
 
-   <div class="w3-content w3-display-container">
-    <img class="mySlides" src="Untitled.png" style="width:100%">
-    <img class="mySlides" src="Birds.png" style="width:100%">
-    <img class="mySlides" src="Flowers.png" style="width:100%">
-  
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-  </div>
-  
-  <script>
-  var slideIndex = 1;
-  showDivs(slideIndex);
-  
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
-  
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    x[slideIndex-1].style.display = "block";  
-  }
-  </script>
+                <div class="slideshow-container box-cell box1">
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="Untitled.png"
+                        style:"width: 750px" height="1%">
+                    </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="Flowers.png"
+                    style:"width: 750px" height="1%">
+                </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="Birds.png"
+                style:"width: 750px" height="1%">
+            </div>
+
+        </div> 
+        <div class="box-cell box2">
+            <h1 style:"font-size: 6%;">Andi Marie Photography</h1>
+        </div>
+    </div>
+</div>
+<br>
+
+<div style="margin-left: 10px">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+var i;
+var slides = document.getElementsByClassName("mySlides");
+var dots = document.getElementsByClassName("dot");
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";  
+}
+slideIndex++;
+if (slideIndex > slides.length) {slideIndex = 1}    
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" active", "");
+}
+slides[slideIndex-1].style.display = "block";  
+dots[slideIndex-1].className += " active";
+setTimeout(showSlides, 4000); // Change image every 4 seconds
+}
+</script>
+</div>
 </body>
 </html>
+
